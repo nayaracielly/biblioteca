@@ -8,7 +8,7 @@ import java.util.Scanner;
 import business.control.BookManager;
 import business.control.Listagem;
 import business.control.ModoDeListagem;
-import business.model.Book;
+import business.model.Livro;
 import business.util.CodigoInvalidException;
 
 public class BookAddForm {//Classe que escolhe o tipo de listagem do template method
@@ -26,7 +26,7 @@ public class BookAddForm {//Classe que escolhe o tipo de listagem do template me
 		opcao = new Scanner(System.in);
 		int opMenu;
 		do{
-			System.out.println("\nEscolha a opção desejada:\n1- Cadastrar Livro;\n2- Listar Livros; \n3- Excluir Livro;"
+			System.out.println("\nEscolha a opï¿½ï¿½o desejada:\n1- Cadastrar Livro;\n2- Listar Livros; \n3- Excluir Livro;"
 					+ "\n4- Alterar Livro;\n5- Voltar");
 			opMenu = opcao.nextInt();
 		}while(opMenu<1||opMenu>5);
@@ -57,7 +57,7 @@ public class BookAddForm {//Classe que escolhe o tipo de listagem do template me
 			while (checked) {
 				String codigo = "";
 				
-				System.out.println("Codigo do livro (até 10 caracteres):");
+				System.out.println("Codigo do livro (atï¿½ 10 caracteres):");
 				codigo = entrada.nextLine();
 				
 									
@@ -84,7 +84,7 @@ public class BookAddForm {//Classe que escolhe o tipo de listagem do template me
 				opMenu = opcao.nextInt();
 			}while(opMenu<1||opMenu>3);
 			
-			if(opMenu==1){//Nesse if-else é ecolhido qual método de listagem será usado no template method
+			if(opMenu==1){//Nesse if-else ï¿½ ecolhido qual mï¿½todo de listagem serï¿½ usado no template method
 				minhaListagem = new Listagem(ModoDeListagem.porAutor);
 				System.out.println("=== Listagem por Autor ===");
 				minhaListagem.mostrarLista();

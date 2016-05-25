@@ -1,12 +1,12 @@
 package business.control;
 
-import business.model.Book;
+import business.model.Livro;
 
-//Possui o método que define que a ordenação será por autor em ordem alfabética
+//Possui o mï¿½todo que define que a ordenaï¿½ï¿½o serï¿½ por autor em ordem alfabï¿½tica
 public class OrdenadorPorAutor extends OrdenadorTemplate {
 
 	@Override
-	public boolean isPrimeiro(Book book1, Book book2) {
+	public boolean isPrimeiro(Livro book1, Livro book2) {
 		if (book1.getAutor().compareToIgnoreCase(book2.getAutor()) <= 0) {
 			return true;
 		}

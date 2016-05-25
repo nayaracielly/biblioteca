@@ -11,11 +11,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import business.control.BookManager;
-import business.model.Book;
+import business.model.Livro;
 
 public class BookFile {
 	
-	public static BookFile instancia;//Implementação do padrão Singleton
+	public static BookFile instancia;//Implementaï¿½ï¿½o do padrï¿½o Singleton
 	
 	private BookFile(){}
 	
@@ -26,7 +26,7 @@ public class BookFile {
         return instancia;
     }
 
-	public void saveBooks(List<Book> books, String path) throws InfraException, IOException {
+	public void saveBooks(List<Livro> books, String path) throws InfraException, IOException {
 		File file = new File(path);
 		try {
 			ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(file));
@@ -42,8 +42,8 @@ public class BookFile {
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<Book> loadBooks(String path) throws InfraException, IOException {
-		List<Book> books = new ArrayList<Book>();
+	public List<Livro> loadBooks(String path) throws InfraException, IOException {
+		List<Livro> books = new ArrayList<Livro>();
 		File file = new File(path);
 		ObjectInputStream objInput = null;
 		InputStream in = null;
@@ -54,7 +54,7 @@ public class BookFile {
 			in = new FileInputStream(file);
 			// Recupera a lista
 			objInput = new ObjectInputStream(in);
-			books = (List<Book>) objInput.readObject();
+			books = (List<Livro>) objInput.readObject();
 			return books;
 
 		} catch (NullPointerException ex) {
@@ -73,7 +73,7 @@ public class BookFile {
 			}
 		}
 	}
-	public List<Book> loadBooks() throws InfraException, IOException {
+	public List<Livro> loadBooks() throws InfraException, IOException {
 		return loadBooks("book.bin");
 	}
 }

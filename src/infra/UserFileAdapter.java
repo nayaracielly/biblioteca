@@ -3,9 +3,9 @@ package infra;
 import java.io.IOException;
 import java.util.List;
 
-import business.model.User;
+import business.model.Usuario;
 
-public class UserFileAdapter implements Persistencia { //Adaptador de usuário
+public class UserFileAdapter implements Persistencia { //Adaptador de usuï¿½rio
 	
 	@Override
 	public void save() throws InfraException, IOException {

@@ -3,22 +3,22 @@ package business.control;
 import java.util.ArrayList;
 import java.util.List;
 
-import business.model.Book;
+import business.model.Livro;
 
-//Classe que possui o método de ordenação dos livros e a assinatura do método que define qual será a ordenação
+//Classe que possui o mï¿½todo de ordenaï¿½ï¿½o dos livros e a assinatura do mï¿½todo que define qual serï¿½ a ordenaï¿½ï¿½o
 public abstract class OrdenadorTemplate {
-	public abstract boolean isPrimeiro(Book book1, Book book2);
+	public abstract boolean isPrimeiro(Livro book1, Livro book2);
 
-	protected List<Book> ordenarBook(List<Book> books) {
-		List<Book> novaLista = new ArrayList<Book>();
-		for (business.model.Book book : books) {
+	protected List<Livro> ordenarBook(List<Livro> books) {
+		List<Livro> novaLista = new ArrayList<Livro>();
+		for (business.model.Livro book : books) {
 			novaLista.add(book);
 		}
 
 		for (int i = 0; i < novaLista.size(); i++) {
 			for (int j = i; j < novaLista.size(); j++) {
 				if (!isPrimeiro(novaLista.get(i), novaLista.get(j))) {
-					Book temp = novaLista.get(j);
+					Livro temp = novaLista.get(j);
 					novaLista.set(j, novaLista.get(i));
 					novaLista.set(i, temp);
 				}

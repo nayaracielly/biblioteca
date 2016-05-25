@@ -11,34 +11,34 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import business.model.User;
+import business.model.Usuario;
 import business.model.UserZelador;
 import business.util.LoginInvalidException;
 import business.util.PasswordInvalidException;
 import business.util.UserValidador;
 
 public class UserManager {
-	//Classe que manipula a lista de usuários
-	private static List<User> users;
+	//Classe que manipula a lista de usuï¿½rios
+	private static List<Usuario> users;
 	private static Scanner entrada;
-	public static UserManager instancia; //Implementação do padrão Singleton
+	public static UserManager instancia; //Implementaï¿½ï¿½o do padrï¿½o Singleton
 	private FabricaDeAdapter fabrica;
 	private Persistencia adapter;
 	private UserZelador userZ;
 	private int i;
 
 	private UserManager(){
-		fabrica = new FabricaUserFileAdapter();//instancia a fabrica de usuários
-		adapter = fabrica.criar();//instancia o adaptador de usuário
+		fabrica = new FabricaUserFileAdapter();//instancia a fabrica de usuï¿½rios
+		adapter = fabrica.criar();//instancia o adaptador de usuï¿½rio
 		try {
-			users = adapter.load();//usa o método load do adaptador
+			users = adapter.load();//usa o mï¿½todo load do adaptador
 		} catch (InfraException e) {
 			System.out.println("Erro de persistencia, contacte o admin ou tente mais tarde");
 		} catch (IOException e) {
 			System.out.println("Erro de persistencia, contacte o admin ou tente mais tarde");
 		}
 		if(users==null){
-			users = new ArrayList<User>();
+			users = new ArrayList<Usuario>();
 		}		
 	}
 	
@@ -49,11 +49,11 @@ public class UserManager {
         return instancia;
     }
 
-	public List<User> getUsers() {
+	public List<Usuario> getUsers() {
 		return users;
 	}
 
-	public void setUsers(List<User> users) {
+	public void setUsers(List<Usuario> users) {
 		UserManager.users = users;
 	}
 
@@ -63,10 +63,10 @@ public class UserManager {
 		UserValidador.validatePassword(senha);
 		// Check Existence
 		if (UserValidador.validateUserExistence(users, login)){
-			throw new LoginInvalidException("Já existe um usuário com esse login.");
+			throw new LoginInvalidException("Jï¿½ existe um usuï¿½rio com esse login.");
 		}
 		//Adiciona
-		users.add(new User(nome, matricula, curso, login, senha));
+		users.add(new Usuario(nome, matricula, curso, login, senha));
 		adapter.save();
 		System.out.println("Usuario adicionado com sucesso!");	
 	}
@@ -75,7 +75,7 @@ public class UserManager {
 		UserValidador.validateLogin(login);
 		// Check Existence
 		if (!UserValidador.validateUserExistence(users, login)){
-			throw new LoginInvalidException("Nenhum usuário foi encontrado com esse login.");
+			throw new LoginInvalidException("Nenhum usuï¿½rio foi encontrado com esse login.");
 		}
 		// Remove
 		for (int i=0; i < users.size(); i++){
@@ -92,7 +92,7 @@ public class UserManager {
 		UserValidador.validateLogin(login);
 		// Check Existence
 		if (!UserValidador.validateUserExistence(users, login)){
-			throw new LoginInvalidException("Nenhum usuário foi encontrado com esse login.");
+			throw new LoginInvalidException("Nenhum usuï¿½rio foi encontrado com esse login.");
 		}
 		// Atualiza
 		for (i = 0; i < users.size(); i++){
@@ -104,9 +104,9 @@ public class UserManager {
 				users.get(i).setMatricula(entrada.nextLine());
 				System.out.println("Curso: ");
 				users.get(i).setCurso(entrada.nextLine());
-				System.out.println("Login (deve ter menos de 20 caracteres e não pode ter números): ");
+				System.out.println("Login (deve ter menos de 20 caracteres e nï¿½o pode ter nï¿½meros): ");
 				users.get(i).setLogin(entrada.nextLine());
-				System.out.println("Senha (entre 8 e 12 caracteres e pelo menos 1 caracter e 2 números): ");
+				System.out.println("Senha (entre 8 e 12 caracteres e pelo menos 1 caracter e 2 nï¿½meros): ");
 				users.get(i).setSenha(entrada.nextLine());
 				break;
 			}
@@ -115,7 +115,7 @@ public class UserManager {
 		System.out.println("Usuario atualizado com sucesso!");
 //		int escolha;
 //		do{
-//			System.out.println("Digite:\n1- Para desfazer atualização;\n2- Para continuar.");
+//			System.out.println("Digite:\n1- Para desfazer atualizaï¿½ï¿½o;\n2- Para continuar.");
 //			escolha = entrada.nextInt();
 //		}while(escolha<1||escolha>2);
 //		if(escolha==1){
@@ -125,7 +125,7 @@ public class UserManager {
 	
 	public void desfazer() throws InfraException, IOException{		
 		try {
-			users.set(i,users.get(i).restoreFromMemento(userZ.getMemento(0)));//aqui está desfazendo a ação de atualização
+			users.set(i,users.get(i).restoreFromMemento(userZ.getMemento(0)));//aqui estï¿½ desfazendo a aï¿½ï¿½o de atualizaï¿½ï¿½o
 			adapter.save();
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
