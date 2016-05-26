@@ -10,10 +10,10 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 import business.control.UserManager;
-import business.model.User;
+import business.model.Usuario;
 
 public class UserFile {
-	public static UserFile instancia; //Implementação do padrão Singleton
+	public static UserFile instancia; //Implementaï¿½ï¿½o do padrï¿½o Singleton
 	
 	private UserFile(){}
 	
@@ -24,8 +24,8 @@ public class UserFile {
         return instancia;
     }
 	
-	//Classe que manipula o arquivo de usuários
-	public void saveUsers(List<User> users, String path) throws InfraException, IOException {
+	//Classe que manipula o arquivo de usuï¿½rios
+	public void saveUsers(List<Usuario> users, String path) throws InfraException, IOException {
 		File file = new File(path);
 		try {
 			//Gera o arquivo para armazenar o objeto
@@ -55,8 +55,8 @@ public class UserFile {
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<User> loadUsers(String path) throws InfraException, IOException {
-		List<User> users = new ArrayList<User>();
+	public List<Usuario> loadUsers(String path) throws InfraException, IOException {
+		List<Usuario> users = new ArrayList<Usuario>();
 		File file = new File(path);
 		ObjectInputStream objInput = null;
 		InputStream in = null;
@@ -67,7 +67,7 @@ public class UserFile {
 			in = new FileInputStream(file);
 			// Recupera a lista
 			objInput = new ObjectInputStream(in);
-			users = (List<User>) objInput.readObject();
+			users = (List<Usuario>) objInput.readObject();
 			return users;
 
 		} catch (NullPointerException ex) {
@@ -85,7 +85,7 @@ public class UserFile {
 			}
 		}
 	}
-	public List<User> loadUsers() throws InfraException, IOException {
+	public List<Usuario> loadUsers() throws InfraException, IOException {
 		return loadUsers("user.bin");
 	}
 }

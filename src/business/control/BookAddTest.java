@@ -30,7 +30,7 @@ public class BookAddTest{
 			bookM.addBook("codigo", "nome", "editora","autor", "edicao");
 		}
 		catch (NullPointerException | CodigoInvalidException| InfraException | IOException e)	{
-			fail("Test falhou! Deveria criar um usuário.");
+			fail("Test falhou! Deveria criar um usuÃ¡rio.");
 		}
 	}
 
@@ -38,7 +38,7 @@ public class BookAddTest{
 	public void testLoginFail1(){
 		try	{
 			bookM.addBook(null, "nome", "editora","autor", "edicao");
-			fail("Test falhou! Deveria lançar uma exceção.");
+			fail("Test falhou! Deveria lanï¿½ar uma exceï¿½ï¿½o.");
 		}
 		catch (NullPointerException | CodigoInvalidException| InfraException | IOException e) {}
 	}
@@ -47,7 +47,7 @@ public class BookAddTest{
 	public void testLoginFail2(){
 		try	{
 			bookM.addBook("", "nome", "editora","autor", "edicao");
-			fail("Test falhou! Deveria lançar uma exceção.");
+			fail("Test falhou! Deveria lanï¿½ar uma exceï¿½ï¿½o.");
 		}
 		catch (NullPointerException | CodigoInvalidException| InfraException | IOException e) {}
 	}
@@ -56,7 +56,7 @@ public class BookAddTest{
 	public void testLoginFail3(){
 		try	{
 			bookM.addBook("lllllluuuuul", "nome", "editora","autor", "edicao");
-			fail("Test falhou! Deveria lançar uma exceção.");
+			fail("Test falhou! Deveria lanï¿½ar uma exceï¿½ï¿½o.");
 		}
 		catch (NullPointerException | CodigoInvalidException| InfraException | IOException e) {}
 	}

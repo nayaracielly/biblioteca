@@ -3,10 +3,10 @@ package business.control;
 import java.util.ArrayList;
 import java.util.List;
 
-import business.model.Book;
+import business.model.Livro;
 
-public class Listagem {//Classe responsável por escolher qual método de listagem será usado e por mostrar a listagem
-	protected List<Book> books;
+public class Listagem {//Classe responsï¿½vel por escolher qual mï¿½todo de listagem serï¿½ usado e por mostrar a listagem
+	protected List<Livro> books;
 	protected OrdenadorTemplate ordenador;
 	private BookManager bookM;
 	
@@ -26,11 +26,11 @@ public class Listagem {//Classe responsável por escolher qual método de listagem
 	}
 
 	public void mostrarLista() {
-		List<Book> novaLista = new ArrayList<Book>();
+		List<Livro> novaLista = new ArrayList<Livro>();
 		novaLista = ordenador.ordenarBook(books);
 
-		for (Book book : novaLista) {
-			System.out.println("[ Codigo: "+book.getCodigo()+" || Nome: "+book.getNome()+ " || Editora: " +book.getEditora()+ " || Autor: " + book.getAutor()+ " || Edição: " + book.getEdicao() + " ]");
+		for (Livro book : novaLista) {
+			System.out.println("[ Codigo: "+book.getCodigo()+" || Nome: "+book.getNome()+ " || Editora: " +book.getEditora()+ " || Autor: " + book.getAutor()+ " || Ediï¿½ï¿½o: " + book.getEdicao() + " ]");
 			
 		}
 	}

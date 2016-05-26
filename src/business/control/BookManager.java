@@ -11,16 +11,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import business.model.Book;
+import business.model.Livro;
 import business.util.BookValidador;
 import business.util.CodigoInvalidException;
 
 
 public class BookManager {
 	//Classe que manipula a lista de livros
-	private static List<Book> books;
+	private static List<Livro> books;
 	private static Scanner entrada;
-	public static BookManager instancia;//Implementação do padrão Singleton
+	public static BookManager instancia;//Implementaï¿½ï¿½o do padrï¿½o Singleton
 	private FabricaDeAdapter fabrica;
 	private Persistencia adapter;
 
@@ -28,14 +28,14 @@ public class BookManager {
 		fabrica = new FabricaBookFileAdapter();//instancia a fabrica de livros
 		adapter = fabrica.criar(); //instancia o adaptador de livro
 		try {
-			books = adapter.load();//usa o método load do adaptador
+			books = adapter.load();//usa o mï¿½todo load do adaptador
 		} catch (InfraException e) {
 			System.out.println("Erro de persistencia, contacte o admin ou tente mais tarde");
 		} catch (IOException e) {
 			System.out.println("Erro de persistencia, contacte o admin ou tente mais tarde");
 		}
 		if(books==null){
-			books = new ArrayList<Book>();
+			books = new ArrayList<Livro>();
 		}
 	}
 
@@ -45,11 +45,11 @@ public class BookManager {
         }
         return instancia;
     }
-	public List<Book> getBooks() {
+	public List<Livro> getBooks() {
 		return books;
 	}
 
-	public void setBooks(List<Book> books) {
+	public void setBooks(List<Livro> books) {
 		BookManager.books = books;
 	}
 
@@ -57,11 +57,11 @@ public class BookManager {
 		BookValidador.validateCodigo(codigo);
 		// Check Existence
 		if (BookValidador.validateBookExistence(books, codigo)){
-			throw new CodigoInvalidException("Já existe um livro com esse código.");
+			throw new CodigoInvalidException("Jï¿½ existe um livro com esse cï¿½digo.");
 		}
 		//Adiciona
-		books.add(new Book(codigo, nome, editora, autor, edicao));
-		adapter.save();//usa o método save do adaptador
+		books.add(new Livro(codigo, nome, editora, autor, edicao));
+		adapter.save();//usa o mï¿½todo save do adaptador
 		System.out.println("Livro adicionado com sucesso!");
 	}
 
@@ -90,7 +90,7 @@ public class BookManager {
 		//Atualiza
 		for (int i=0; i < books.size(); i++){
 			if (codigo != null && codigo.equals(books.get(i).getCodigo())){
-				System.out.println("Codigo (até 10 caracteres): ");
+				System.out.println("Codigo (atï¿½ 10 caracteres): ");
 				books.get(i).setCodigo(entrada.nextLine());
 				System.out.println("Nome: ");
 				books.get(i).setNome(entrada.nextLine());
@@ -98,7 +98,7 @@ public class BookManager {
 				books.get(i).setEditora(entrada.nextLine());
 				System.out.println("Autor: ");
 				books.get(i).setAutor(entrada.nextLine());
-				System.out.println("Edição: ");
+				System.out.println("Ediï¿½ï¿½o: ");
 				books.get(i).setEdicao(entrada.nextLine());
 			}
 		}
