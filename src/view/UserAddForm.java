@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 import business.control.FachadaComand;
 import business.control.UserManager;
-import business.model.User;
+import business.model.Usuario;
 import business.util.LoginInvalidException;
 import business.util.PasswordInvalidException;
 
@@ -31,8 +31,8 @@ public class UserAddForm {
 		opcao = new Scanner(System.in);
 		int opMenu;
 		do{
-			System.out.println("\nEscolha a opção desejada:\n1- Cadastrar Usuario;\n2- Listar Usuários; \n3- Excluir Usuário;"
-					+ "\n4- Alterar Usuário;\n5- Desfazer última atualização; \n6- Voltar");
+			System.out.println("\nEscolha a opï¿½ï¿½o desejada:\n1- Cadastrar Usuario;\n2- Listar Usuï¿½rios; \n3- Excluir Usuï¿½rio;"
+					+ "\n4- Alterar Usuï¿½rio;\n5- Desfazer ï¿½ltima atualizaï¿½ï¿½o; \n6- Voltar");
 			opMenu = opcao.nextInt();
 		}while(opMenu<1||opMenu>5);
 		opcaoCadUsuario(opMenu);			
@@ -62,9 +62,9 @@ public class UserAddForm {
 				String login = "";
 				String senha = "";
 				
-				System.out.println("Login do usuario (deve ter menos de 20 caracteres e não pode ter números):");
+				System.out.println("Login do usuario (deve ter menos de 20 caracteres e nï¿½o pode ter nï¿½meros):");
 				dadosUser.add(3, entrada.nextLine());
-				System.out.println("Senha do usuario (entre 8 e 12 caracteres e pelo menos 1 caracter e 2 números):");					
+				System.out.println("Senha do usuario (entre 8 e 12 caracteres e pelo menos 1 caracter e 2 nï¿½meros):");					
 				dadosUser.add(4, entrada.nextLine());
 				
 				try {

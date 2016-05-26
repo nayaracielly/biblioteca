@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.util.Scanner;
 
 import business.control.BookManager;
-import business.model.Book;
+import business.model.Livro;
 import business.util.CodigoInvalidException;
 
 public class EmprestimoAddForm {
@@ -23,7 +23,7 @@ public class EmprestimoAddForm {
 		opcao = new Scanner(System.in);
 		int opMenu;
 		do{
-			System.out.println("\nEscolha a opção desejada:\n1- Cadastrar Livro;\n2- Listar Livros; \n3- Excluir Livro;"
+			System.out.println("\nEscolha a opï¿½ï¿½o desejada:\n1- Cadastrar Livro;\n2- Listar Livros; \n3- Excluir Livro;"
 					+ "\n4- Alterar Livro;\n5- Voltar");
 			opMenu = opcao.nextInt();
 		}while(opMenu<1||opMenu>5);
@@ -54,7 +54,7 @@ public class EmprestimoAddForm {
 			while (checked) {
 //				String codigo = "";
 //				
-//				System.out.println("Codigo do livro (até 10 caracteres):");
+//				System.out.println("Codigo do livro (atï¿½ 10 caracteres):");
 //				codigo = entrada.nextLine();
 				
 									
@@ -74,8 +74,8 @@ public class EmprestimoAddForm {
 			break;
 		
 		case 2:
-			for (Book book : bookM.getBooks())
-				System.out.println("[ Codigo: "+book.getCodigo()+" || Nome: "+book.getNome()+ " || Editora: " +book.getEditora()+ " || Autor: " + book.getAutor()+ " || Edição: " + book.getEdicao() + " ]");
+			for (Livro book : bookM.getBooks())
+				System.out.println("[ Codigo: "+book.getCodigo()+" || Nome: "+book.getNome()+ " || Editora: " +book.getEditora()+ " || Autor: " + book.getAutor()+ " || Ediï¿½ï¿½o: " + book.getEdicao() + " ]");
 			
 			showMenuCadLivro();
 			break;

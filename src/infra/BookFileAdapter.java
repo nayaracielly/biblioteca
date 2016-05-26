@@ -3,7 +3,7 @@ package infra;
 import java.io.IOException;
 import java.util.List;
 
-import business.model.Book;
+import business.model.Livro;
 
 public class BookFileAdapter implements Persistencia {//Adaptador de livro
 	
